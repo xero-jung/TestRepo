@@ -48,7 +48,7 @@ open class BaseBuildType(block: BuildType.() -> Unit) : BuildType({
 object PullRequestBuildType : BaseBuildType({
     name = "Pull Request Build"
 
-    features.add {
+    features {
         pullRequests {
             vcsRootExtId = "${DslContext.settingsRoot.id}"
             provider = github {
