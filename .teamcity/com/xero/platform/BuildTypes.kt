@@ -5,6 +5,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.DslContext
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.PullRequests
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.dockerSupport
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.pullRequests
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
 open class BaseBuildType(block: BuildType.() -> Unit) : BuildType({
@@ -50,6 +51,15 @@ object PullRequestBuildType : BaseBuildType({
                 }
                 filterAuthorRole = PullRequests.GitHubRoleFilter.MEMBER
             }
+        }
+    }
+
+    steps {
+        gradle {
+            name = "Run help task"
+            useGradleWrapper = true
+            dockerImage = "android-build-agent:0.0.3.5"
+            tasks = "help"
         }
     }
 })
