@@ -58,7 +58,6 @@ object PullRequestBuildType : BaseBuildType({
         gradle {
             name = "Run help task"
             useGradleWrapper = true
-            dockerPull = true
             dockerImage = "mobile-docker-common.artifactory.xero-support.com/android-build-agent:0.0.3.5"
             tasks = "help"
         }
