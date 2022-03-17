@@ -8,7 +8,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
 open class BaseBuildType(block: BuildType.() -> Unit) : BuildType({
-    name = "Build"
+    name = "Base build type"
 
     vcs {
         root(DslContext.settingsRoot)
@@ -39,6 +39,8 @@ open class BaseBuildType(block: BuildType.() -> Unit) : BuildType({
 })
 
 object PullRequestBuildType : BaseBuildType({
+    name = "Pull Request Build"
+
     features {
         pullRequests {
             vcsRootExtId = "${DslContext.settingsRoot.id}"
