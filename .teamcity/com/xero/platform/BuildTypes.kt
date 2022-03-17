@@ -7,6 +7,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.dockerSupport
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.v2019_2.ui.add
 
 open class BaseBuildType(block: BuildType.() -> Unit) : BuildType({
     name = "Base build type"
@@ -42,7 +43,7 @@ open class BaseBuildType(block: BuildType.() -> Unit) : BuildType({
 object PullRequestBuildType : BaseBuildType({
     name = "Pull Request Build"
 
-    features {
+    features.add {
         pullRequests {
             vcsRootExtId = "${DslContext.settingsRoot.id}"
             provider = github {
