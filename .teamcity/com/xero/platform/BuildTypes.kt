@@ -31,7 +31,7 @@ open class BaseBuildType(block: BuildType.() -> Unit) : BuildType({
         }
         dockerSupport {
             loginToRegistry = on {
-                dockerRegistryId = "PROJECT_EXT_33"
+                dockerRegistryId = "PROJECT_EXT_200"
             }
         }
     }
