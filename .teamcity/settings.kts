@@ -54,5 +54,13 @@ object Build : BuildType({
                 filterAuthorRole = PullRequests.GitHubRoleFilter.MEMBER
             }
         }
+        feature {
+            type = "teamcity.github.status"
+            param("guthub_owner", "xero-jung")
+            param("guthub_authentication_type", "token")
+            param("guthub_repo", "TestRepo")
+            param("github_report_on", "on start and finish")
+            param("secure:github_access_token", "credentialsJSON:4a5cdcd3-38f8-4648-bc46-53a31388855f")
+        }
     }
 })
