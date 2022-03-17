@@ -22,6 +22,7 @@ open class BaseBuildType(block: BuildType.() -> Unit) : BuildType({
     }
 
     requirements {
+        moreThan("teamcity.agent.work.dir.freeSpaceMb", "50000")
         equals("teamcity.agent.jvm.os.name", "Linux")
         equals("aws.account", "xero-ps-paas-svc")
     }
