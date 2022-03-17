@@ -21,6 +21,11 @@ open class BaseBuildType(block: BuildType.() -> Unit) : BuildType({
         }
     }
 
+    requirements {
+        equals("teamcity.agent.jvm.os.name", "Linux")
+        equals("aws.account", "xero-ps-paas-svc")
+    }
+
     features {
         feature {
             type = "teamcity.github.status"
